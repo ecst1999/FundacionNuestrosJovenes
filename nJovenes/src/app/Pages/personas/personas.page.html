@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title>Personas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <button class="btn btn-primary" type="button" [routerLink]='["/personas-form"]'>Agregar Prestamo Enseres</button>
+  <div class="container-fluid">
+
+  <p *ngIf="!(personas && personas.length)">
+      No existen registros para mostrar
+  </p>
+
+<ion-icon name="refresh" (click)="getDatos()" *ngIf="datosObtenidos" class="btn-block"></ion-icon>
+
+<table class="table table-sm" *ngIf="personas && personas.length">
+  <thead>
+    <tr>
+      <th scope="col">
+        #
+      </th>
+      <th scope="col">
+        Nombres
+      </th>
+      <th scope="col">
+        Cédula
+      </th>
+      <th scope="col">
+        Registro
+      </th>
+      <th scope="col">
+        Acciones
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let persona of personas; let i='index'">
+      <td>{{i+1}}</td>  
+      <td>{{persona.nombre}} {{persona.apellido}}</td>
+      <td>{{persona.cedula}}</td>
+      <td>{{persona.fecha}}</td>
+      <td>
+        <button class="btn btn-primary" [routerLink]='["/personas-editar/" + persona.id]'>Editar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</ion-content>

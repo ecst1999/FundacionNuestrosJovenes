@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+  <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+  </ion-buttons>
+    <ion-title>{{modoEdicion ? 'Editar' : 'Agregar'}} Registro de Prestamo de Enseres</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<form class="form-horizontal" novalidate (ngSubmit)="registrar()">
+    <div class="form-group">
+  <label for="nombre">Nombres</label>
+  <ion-input class="form-control" type="text" placeholder="Nombres" [(ngModel)]="personasForm.nombre" name="nombre"></ion-input>
+  <label for="apellido">Apellidos</label>
+  <ion-input class="form-control" type="text" placeholder="Apellidos" [(ngModel)]="personasForm.apellido" name="apellido"></ion-input>
+  <label for="identidad">Documento de Identidad</label>
+  <ion-input class="form-control" type="text" placeholder="Documento de Identidad" [(ngModel)]="personasForm.cedula" name="cedula"></ion-input>
+  <label for="cantidad">Cantidad</label>
+  <ion-input class="form-control" type="number" placeholder="Cantidad" [(ngModel)]="personasForm.cantidad" name="cantidad"></ion-input>
+  <label for="descripcion">Descripción</label>
+  <ion-input class="form-control" type="text" placeholder="descripcion" [(ngModel)]="personasForm.descripcion" name="descripcion"></ion-input>
+  <label for="fecha">Fecha de ingreso</label>
+  <ion-input class="form-control" type="date" placeholder="Fecha de Ingreso" [(ngModel)]="personasForm.fecha" name="fecha"></ion-input>
+  <label for="firma">Firma</label>
+  <ion-input class="form-control" type="text" placeholder="Firma" [(ngModel)]="personasForm.firma" name="firma"></ion-input>
+  </div>
+  <button type="submit" class="btn btn-primary">Guardar Prestamo</button>
+  <button type="button" class="btn btn-danger" [routerLink]='["/personas"]'>Cancelar</button>
+</form>
+</ion-content>

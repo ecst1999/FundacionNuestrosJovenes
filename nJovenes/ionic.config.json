@@ -1,0 +1,7 @@
+{
+  "name": "nJovenes",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
