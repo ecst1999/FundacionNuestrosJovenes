@@ -18,7 +18,8 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->string('nombre');
             $table->string('email');
-            $table->string('contrasena');
+            $table->string('contra');
+            $table->string('api_token');
         });
     }
 
