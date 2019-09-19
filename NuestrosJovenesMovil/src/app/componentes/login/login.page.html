@@ -1,12 +1,19 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title text-center>Iniciar Sesión</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+  <img class="icon" src="../../../assets/img/fnj.jpg" alt="">
 <ion-item>
-  <ion-label>Email:</ion-label>
-  <ion-input type="text" name="email"></ion-input>
+  <ion-label position="floating">Correo Electrónico:</ion-label>
+  <ion-input type="text" [(ngModel)]="email" name="email"></ion-input>
 </ion-item>
+<ion-item>
+  <ion-label position="floating">Contraseña:</ion-label>
+  <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
+</ion-item>
+<br>
+<ion-button (click)="Login()" type="button" expand="block">Entrar</ion-button>
 </ion-content>
