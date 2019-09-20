@@ -1,5 +1,7 @@
 {
   "name": "NuestrosJovenesMovil",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
