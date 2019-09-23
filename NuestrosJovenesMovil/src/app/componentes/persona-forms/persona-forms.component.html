@@ -1,8 +1,37 @@
 <ion-header>
-        <ion-toolbar color="secundary">
-            <ion-button slot="start" fill="clear">
-                <ion-icon name="close"></ion-icon>
-                <ion-title>Agregar Prestamo de Enseres</ion-title>
-            </ion-button>
-        </ion-toolbar>
-    </ion-header>
+    <ion-toolbar color="secundary">
+        <ion-button slot="start" fill="clear">
+            <ion-icon name="close"></ion-icon>
+            <ion-title>Agregar Prestamo de Enseres</ion-title>
+        </ion-button>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+        <ion-item>
+                <ion-label position="floating">Cedula</ion-label>
+                <ion-input type="number" [(ngModel)]="cedula" name="cedula"></ion-input>        
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Nombre</ion-label>
+                <ion-input type="text" [(ngModel)]="nombre" name="nombre"></ion-input>        
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Apellido</ion-label>
+                <ion-input type="text" [(ngModel)]="apellido" name="apellido"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Cantidad</ion-label>
+                <ion-input type="number" [(ngModel)]="cantidad" name="cantidad"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Descripción</ion-label>
+                <ion-input type="text" [(ngModel)]="descripcion" name="descripcion"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Firma</ion-label>
+                <ion-input type="text" [(ngModel)]="firma" name="firma"></ion-input>
+            </ion-item>
+            <br>
+            <ion-button type="button" color="primary">Guardar</ion-button>
+            <ion-button type="button" color="danger">Cancelar</ion-button>
+</ion-content>
