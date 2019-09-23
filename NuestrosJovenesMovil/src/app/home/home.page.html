@@ -1,13 +1,16 @@
-<ion-header>
+<ion-header>  
   <ion-toolbar color="tertiary">
-    <ion-title>        
-      Aplicación Control de Enseres        
-    </ion-title>
-  </ion-toolbar>
+      <ion-buttons slot="secondary">
+        <ion-button (click)="CerrarSesion()">
+          <ion-icon slot="icon-only" name="log-out"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Aplicación Control de Enseres</ion-title>
+    </ion-toolbar>    
 </ion-header>
 
 <ion-content>
-  <ion-button (click)="CerrarSesion()">Desconectarse</ion-button>
+  <ion-button expand="block"><ion-icon name="person-add"></ion-icon></ion-button>  
   <ion-list>    
       <ion-item *ngFor="let persona of Personas" (click)="abrirDetalle(persona)">
           <ion-label>
@@ -17,7 +20,7 @@
             <p>{{persona.fechaEntrega.seconds * 1000 | date:'MM-dd-yyyy'}}</p>
             <p>{{persona.Firma}}</p>
           </ion-label>
-      </ion-item>    
-    <ion-button (click)="getDatos()">Traer Data</ion-button>
+      </ion-item>        
   </ion-list>
+  <ion-button *ngIf="!OcultarBoton" (click)="getDatos()" color="success" expand="block"><ion-icon name="download"></ion-icon></ion-button>
 </ion-content>
