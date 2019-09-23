@@ -4,6 +4,7 @@ import { PersonasService } from '../Servicios/personas.service';
 import { IPersonas } from '../Interfaces/IPersonas';
 import { ModalController } from '@ionic/angular';
 import { PersonaComponent } from '../componentes/persona/persona.component';
+import { PersonaFormsComponent } from '../componentes/persona-forms/persona-forms.component';
 
 @Component({
   selector: 'app-home',
@@ -28,6 +29,13 @@ export class HomePage implements OnInit{
   ngOnInit()
   {
     
+  }
+
+  agregarPersona()
+  {    
+    this.modal.create({
+      component: PersonaFormsComponent
+    }).then((modal) => modal.present());
   }
   
   getDatos()

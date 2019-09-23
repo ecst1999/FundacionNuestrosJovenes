@@ -15,10 +15,14 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { PersonaComponent } from './componentes/persona/persona.component';
 import { FormsModule } from '@angular/forms';
+import { PersonaFormsComponent } from './componentes/persona-forms/persona-forms.component';
 
 @NgModule({
-  declarations: [AppComponent,PersonaComponent],
-  entryComponents: [PersonaComponent],
+  declarations: [AppComponent,
+    PersonaComponent, 
+    PersonaFormsComponent],
+  entryComponents: [PersonaComponent, 
+    PersonaFormsComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,

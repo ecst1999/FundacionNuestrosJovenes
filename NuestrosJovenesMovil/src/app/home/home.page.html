@@ -5,12 +5,12 @@
           <ion-icon slot="icon-only" name="log-out"></ion-icon>
         </ion-button>
       </ion-buttons>
-      <ion-title>Aplicación Control de Enseres</ion-title>
+      <ion-title>Control de Enseres</ion-title>
     </ion-toolbar>    
 </ion-header>
 
 <ion-content>
-  <ion-button expand="block"><ion-icon name="person-add"></ion-icon></ion-button>  
+  <ion-button expand="block" (click)="agregarPersona()"><ion-icon name="person-add"></ion-icon></ion-button>  
   <ion-list>    
       <ion-item *ngFor="let persona of Personas" (click)="abrirDetalle(persona)">
           <ion-label>
