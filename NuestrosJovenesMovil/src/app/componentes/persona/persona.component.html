@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-toolbar color="secundary">
+        <ion-button slot="start" fill="clear" (click)="cerrarDetalle()">
+            <ion-icon name="close"></ion-icon>
+            <ion-title>Datos de las Personas</ion-title>
+        </ion-button>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">    
+    <ion-item>
+        <ion-label position="floating">Cedula</ion-label>
+        <ion-input type="number" [(ngModel)]="cedula" name="cedula" value="{{cedula}}"></ion-input>        
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input type="text" [(ngModel)]="nombre" name="nombre" value="{{nombre}}"></ion-input>        
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">Apellido</ion-label>
+        <ion-input type="text" [(ngModel)]="apellido" name="apellido" value="{{apellido}}"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">Cantidad</ion-label>
+        <ion-input type="number" [(ngModel)]="cantidad" name="cantidad" value="{{cantidad}}"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">Descripción</ion-label>
+        <ion-input type="text" [(ngModel)]="descripcion" name="descripcion" value="{{descripcion}}"></ion-input>
+    </ion-item>
+    <br>
+    <ion-button type="button" color="primary" (click)="editarDatos()">Guardar</ion-button>
+    <ion-button type="button" color="danger" (click)="cerrarDetalle()">Cancelar</ion-button>
+
+</ion-content>
+
+<ion-footer class="ion-padding">
+    <ion-item>
+        <p>{{varia}}</p>
+    </ion-item>
+</ion-footer>

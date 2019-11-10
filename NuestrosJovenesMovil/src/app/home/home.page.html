@@ -1,14 +1,26 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
+<ion-header>  
+  <ion-toolbar color="tertiary">
+      <ion-buttons slot="secondary">
+        <ion-button (click)="CerrarSesion()">
+          <ion-icon slot="icon-only" name="log-out"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>Control de Enseres</ion-title>
+    </ion-toolbar>    
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+  <ion-button expand="block" (click)="agregarPersona()"><ion-icon name="person-add"></ion-icon></ion-button>  
+  <ion-list>    
+      <ion-item *ngFor="let persona of Personas" (click)="abrirDetalle(persona)">
+          <ion-label>
+            <h2> <b>{{persona.nombre}} {{persona.apellido}}</b></h2>
+            <p>{{persona.cedula}}</p>
+            <p>{{persona.descripcion}}</p>
+            <p>{{persona.fechaEntrega.seconds * 1000 | date:'MM-dd-yyyy'}}</p>
+            <p>{{persona.Firma}}</p>
+          </ion-label>
+      </ion-item>        
+  </ion-list>
+  <ion-button *ngIf="!OcultarBoton" (click)="getDatos()" color="success" expand="block"><ion-icon name="download"></ion-icon></ion-button>
 </ion-content>
