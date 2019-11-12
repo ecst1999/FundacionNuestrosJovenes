@@ -57,6 +57,7 @@ class PersonasController extends Controller
           DB::beginTransaction();
           $result = $data->json()->all();
           $persona = Persona::where('id',$id)->update([
+            'nombre'=>$result['nombre'],
             'apellido'=>$result['apellido'],
             'cedula'=>$result['cedula'],
             'descripcion'=>$result['descripcion'],

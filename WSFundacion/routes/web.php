@@ -18,7 +18,7 @@ $router->group(['middleware' => []], function () use ($router) {
     $router->get('/persona', ['uses' => 'PersonasController@getPersona']);
     $router->post('/persona', ['uses' => 'PersonasController@postPersona']);
     $router->get('/persona/{id}', ['uses' => 'PersonasController@getPersonaId']);
-    $router->put('/persona/{id}', ['uses' => 'PersonasController@putPers']);    
+    $router->put('/persona/{id}', ['uses' => 'PersonasController@putPersona']);    
     $router->post('/registro', ['uses' => 'UserController@register']);
     $router->post('/login', ['uses' => 'UserController@login']);
 });
