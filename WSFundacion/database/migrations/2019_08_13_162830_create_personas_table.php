@@ -23,6 +23,7 @@ class CreatePersonasTable extends Migration
             $table->string('descripcion');
             $table->date('fecha');
             $table->string('firma');
+            $table->boolean('estado');
         });
     }
 

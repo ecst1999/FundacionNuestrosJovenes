@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonasService } from 'src/app/Services/Personas/personas.service';
 import { IPersona } from 'src/app/Interfaces/IPersona';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-personas',
@@ -12,7 +13,8 @@ export class PersonasPage implements OnInit {
   personas: IPersona[];
   datosObtenidos: boolean = true;
   
-  constructor(private personasService: PersonasService) { }
+  constructor(private personasService: PersonasService, 
+    private router: Router) { }
 
   ngOnInit() 
   {        
@@ -25,4 +27,13 @@ export class PersonasPage implements OnInit {
     this.datosObtenidos = false;    
   }
 
+  borrar(personaid: string){
+    this.personasService.deletePersona(personaid.toString())
+      .subscribe(persona => this.eliminadoSuccess(),
+      error => console.error(error));
+  }
+
+  eliminadoSuccess(){
+    this.router.navigate(["/personas"]);
+  }
 }

@@ -9,7 +9,7 @@ class Persona extends Model
      * @var array
      */
     protected $fillable = [
-       'nombre','apellido','cedula','cantidad','descripcion','fecha','firma',
+       'nombre','apellido','cedula','cantidad','descripcion','fecha','firma', 'estado',
     ];
 
 }

@@ -21,4 +21,5 @@ $router->group(['middleware' => []], function () use ($router) {
     $router->put('/persona/{id}', ['uses' => 'PersonasController@putPersona']);    
     $router->post('/registro', ['uses' => 'UserController@register']);
     $router->post('/login', ['uses' => 'UserController@login']);
+    $router->delete('/persona/{id}', ['uses' => 'PersonasController@deletePersona']);       
 });

@@ -31,4 +31,9 @@ export class PersonasService {
   {
     return this.http.put<IPersona>(this.apiLink + '/' + persona.id.toString(), persona);
   }
+
+  deletePersona(personaid: string):Observable<IPersona>
+  {
+    return this.http.delete<IPersona>(this.apiLink+ '/' + personaid.toString());
+  }
 }

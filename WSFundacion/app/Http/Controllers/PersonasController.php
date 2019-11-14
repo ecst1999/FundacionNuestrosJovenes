@@ -41,6 +41,7 @@ class PersonasController extends Controller
                 'cantidad'=>$result['cantidad'],
                 'fecha'=>$result['fecha'],
                 'firma'=>$result['firma'],
+                'estado'=>true,
             ]);
             DB::commit();
         }
@@ -63,7 +64,7 @@ class PersonasController extends Controller
             'descripcion'=>$result['descripcion'],
             'fecha'=>$result['fecha'],
             'cantidad'=>$result['cantidad'],
-            'firma'=>$result['firma'],
+            'firma'=>$result['firma'],            
           ]);
           DB::commit();
        } catch (Exception $e) {
@@ -72,24 +73,17 @@ class PersonasController extends Controller
        return response()->json($persona,200);
     }
 
-    function putPers(Request $data, $id)
+    function deletePersona(Request $data, $id)
     {
         try{
             DB::beginTransaction();
-            $result = $data->json()->all();
             $persona = Persona::where('id', $id)->update([
-                'nombre'=>$result['nombre'],
-                'apellido'=>$result['apellido'],
-                'cedula'=>$result['cedula'],
-                'cantidad'=>$result['cantidad'],
-                'descripcion'=>$result['descripcion'],
-                'fecha'=>$result['fecha'],
-                'firma'=>$result['firma'],
+                'estado'=>false,
             ]);
             DB::commit();
-         } catch (Exception $e) {
+        }catch(Exception $e){
             return response()->json($e,400);
-         }
-         return response()->json($persona,200);
+        }
+        return response()->json($persona,200);
     }
 }
