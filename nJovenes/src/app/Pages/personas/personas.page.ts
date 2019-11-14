@@ -28,9 +28,15 @@ export class PersonasPage implements OnInit {
   }
 
   borrar(personaid: string){
+    const eliminar = confirm('¿Esta seguro de borrar?');
+    if(eliminar){
     this.personasService.deletePersona(personaid.toString())
       .subscribe(persona => this.eliminadoSuccess(),
       error => console.error(error));
+    }
+    if(!eliminar){
+      this.router.navigate(["/personas"]);
+    }
   }
 
   eliminadoSuccess(){
