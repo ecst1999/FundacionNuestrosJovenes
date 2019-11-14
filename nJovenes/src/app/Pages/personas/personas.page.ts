@@ -20,11 +20,11 @@ export class PersonasPage implements OnInit {
   {        
   }
 
-  getDatos(){    
+  getDatos(){
     this.personasService.getPersonas()
       .subscribe(personasDesdeWS => this.personas = personasDesdeWS,
         error => console.error(error)); 
-    this.datosObtenidos = false;    
+    this.datosObtenidos = false;
   }
 
   borrar(personaid: string){
@@ -36,4 +36,5 @@ export class PersonasPage implements OnInit {
   eliminadoSuccess(){
     this.router.navigate(["/personas"]);
   }
+  
 }

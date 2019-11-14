@@ -8,4 +8,5 @@ export interface IPersona
     descripcion: string;
     fecha: Date;
     firma: string;
+    estado: boolean;
 }

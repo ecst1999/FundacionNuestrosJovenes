@@ -20,7 +20,7 @@ class PersonasController extends Controller
         $id = $data['id'];
         if($id == null)
         {
-            return response()->json(Persona::get(), 200);
+            return response()->json(Persona::where('estado', '1')->get(), 200);
         }else
         {
             return response()->json(Persona::findOrFail($id), 200);
