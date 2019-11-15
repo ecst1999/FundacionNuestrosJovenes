@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { GuardService } from './Services/Guard/guard.service';
 
 const routes: Routes = [
   {
@@ -11,9 +12,11 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
-  { path: 'personas', loadChildren: './Pages/personas/personas.module#PersonasPageModule' },
-  { path: 'personas-form', loadChildren: './Pages/personas-form/personas-form.module#PersonasFormPageModule' },
-  { path: 'personas-editar/:id', loadChildren: './Pages/personas-form/personas-form.module#PersonasFormPageModule' }
+  { path: 'personas', canActivate: [GuardService], loadChildren: './Pages/personas/personas.module#PersonasPageModule' },
+  { path: 'personas-form', canActivate: [GuardService], loadChildren: './Pages/personas-form/personas-form.module#PersonasFormPageModule' },
+  { path: 'personas-editar/:id', canActivate: [GuardService], loadChildren: './Pages/personas-form/personas-form.module#PersonasFormPageModule' },
+  { path: 'login', loadChildren: './Pages/Auth/login/login.module#LoginPageModule' }
+
 ];
 
 @NgModule({

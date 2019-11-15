@@ -18,6 +18,7 @@ export class PersonasPage implements OnInit {
 
   ngOnInit() 
   {        
+    this.getDatos();
   }
 
   getDatos(){

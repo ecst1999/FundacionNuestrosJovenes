@@ -23,33 +23,31 @@ export class AuthenticationService {
       })
     }
 
-    checkToken(){
+    checkToken() {
       this.storage.get(TOKEN_KEY).then(res => {
-        if(res){
+        if (res) {
           this.authenticationState.next(true);
         }
       });
     }
 
-    public login(email: String, password: String): Promise<any>
-    {
-      const data = {email: email, password: password};
-      return new Promise((resolve, reject)=>{
-        this.http.post(this.apiWeb + 'login', data ).subscribe(
-          response=>{
+    public login(email: String, contra: String): Promise<any> {
+      const data = {email: email, contra: contra};
+      return new Promise((resolve, reject) => {
+        this.http.post(this.apiWeb+ 'login' , data).subscribe(
+          response => {
             resolve(response);
-            var token_obtenido = response['api_token'];
-            return this.storage.set(TOKEN_KEY, token_obtenido).then(() =>{
+            var token_obtenido = response['token'];
+            return this.storage.set(TOKEN_KEY, token_obtenido).then(() => {
               this.authenticationState.next(true);
-            });
+             });
           },
-          exeption =>{
+          exeption => {
             reject(exeption);
           }
         );
       });
     }
-
     public registro(nombre: String, email: String, contra: string): Promise<any>
     {
       const data = { nombre: nombre, email: email, contra: contra };
@@ -72,8 +70,7 @@ export class AuthenticationService {
       });
     }
 
-    isAuthenticated()
-    {
+    isAuthenticated() {
       return this.authenticationState.value;
     }
 }
