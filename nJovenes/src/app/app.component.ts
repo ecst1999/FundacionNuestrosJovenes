@@ -4,6 +4,7 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthenticationService } from './Services/Auth/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -22,13 +23,15 @@ export class AppComponent {
       url: '/personas',
       icon: 'person'
     }
+
   ];
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar, 
-    private guard: AuthenticationService
+    private guard: AuthenticationService,
+    private router: Router
   ) {
     this.initializeApp();
   }
@@ -43,5 +46,9 @@ export class AppComponent {
   isLoged()
   {
     return this.guard.isAuthenticated();
+  }
+  logout(){
+    this.guard.logout();
+    this.router.navigate(['/login']);
   }
 }
