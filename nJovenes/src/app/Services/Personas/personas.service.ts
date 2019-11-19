@@ -9,7 +9,7 @@ import { IPersona } from 'src/app/Interfaces/IPersona';
 export class PersonasService {
 
   personas: IPersona[];
-  private apiLink = "http://localhost:8080/persona";  
+  private apiLink = "http://10.10.1.34:8080/persona";  
   constructor(private http: HttpClient) { }
 
   getPersonas():Observable<IPersona[]>

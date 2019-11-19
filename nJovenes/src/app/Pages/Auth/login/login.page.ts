@@ -22,10 +22,15 @@ export class LoginPage implements OnInit {
 
   login()
   {
-    this.authService.login(this.email, this.contra);
+    this.authService.login(this.email, this.contra);    
     if(this.authService.isAuthenticated)
     {
+      this.ngOnInit();
       this.router.navigate(['/home']);
+    }
+    if(!this.authService.isAuthenticated)
+    {
+      this.ngOnInit();
     }
   }
 

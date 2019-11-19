@@ -11,7 +11,7 @@ const TOKEN_KEY = 'auth-token';
 })
 export class AuthenticationService {
 
-  private apiWeb = 'http://localhost:8080/';
+  private apiWeb = 'http://10.10.1.34:8080/';
 
   authenticationState = new BehaviorSubject(false);
 

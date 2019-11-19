@@ -9,7 +9,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'home',
+    path: 'home', canActivate:[GuardService] ,
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   { path: 'personas', canActivate: [GuardService], loadChildren: './Pages/personas/personas.module#PersonasPageModule' },

@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 export class PersonasPage implements OnInit {
 
   personas: IPersona[];
-  datosObtenidos: boolean = true;
   
   constructor(private personasService: PersonasService, 
     private router: Router) { }
@@ -24,8 +23,7 @@ export class PersonasPage implements OnInit {
   getDatos(){
     this.personasService.getPersonas()
       .subscribe(personasDesdeWS => this.personas = personasDesdeWS,
-        error => console.error(error)); 
-    this.datosObtenidos = false;
+        error => console.error(error));
   }
 
   borrar(personaid: string){
